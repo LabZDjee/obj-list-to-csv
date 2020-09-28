@@ -1,0 +1,29 @@
+{
+  "name": "@labzdjee/obj-list-to-csv",
+  "version": "1.0.0",
+  "description": "put strings and numbers of a list of objects in an RFC-4180 compliant CSV string",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LabZDjee/obj-list-to-csv.git"
+  },
+  "keywords": [
+    "CSV",
+    "RFC4180",
+    "RFC 4180",
+    "Comma Separated Values",
+    "spreadsheet"
+  ],
+  "author": "G. Gauthier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LabZDjee/obj-list-to-csv/issues"
+  },
+  "homepage": "https://github.com/LabZDjee/obj-list-to-csv#readme",
+  "devDependencies": {
+    "chalk": "^4.1.0"
+  }
+}
