@@ -1,14 +1,14 @@
-# Transforms a List of Objects into CSV List of Strings
+# Transforms a List of Objects into a CSV List of Strings
 
-Purpose of this library is to take a header and a list of objects and transform them into a **CSV** (**C**omma **S**eparated **V**alues) list of strings compatible with [RFC 4180](https://tools.ietf.org/html/rfc4180)
+Purpose of this simple library is to take a header and a list of objects and transform them into a **CSV** (**C**omma **S**eparated **V**alues) list of strings compatible with [RFC 4180](https://tools.ietf.org/html/rfc4180)
 
 CSV format is popular as an interchange format for spreadsheets
 
-This library has been written with (old) browsers in mind and does not offer as many options  and variations as many other related library offer (but which for some failed to *transpile* correctly for some reason...)
+This library has been written with (old) browsers in mind and does not offer as many options  and variations as many other related libraries offer (but for some which failed to *transpile* correctly for some reason... and drove us to write our own)
 
 It implements RFC 4180 format as closely as possible
 
-It also offers some helper functions which allow a fairly easy different implementation of the builder as proposed in the next section
+It also offers some helper functions which would help write a fairly easy different implementation of the builder as proposed in the next section
 
 # CSV Builder
 
@@ -20,13 +20,14 @@ This means only properties found in `headers` will bring values to the CSV resul
 
 This function returns a list of strings, each string representing a line of the CSV file, first line being composed of headers and subsequent lines contain values. Those lines are not finished with any specific end of line (normally CR/LF), this allowing user to define which one they prefer (LF, CR/LF...)
 
-Option is an optional object with the following optional properties:
+Parameters `options` is an optional object with the following optional properties:
 
 - `separator` is meant to be a string defining  the value separator for a CSV record, if `separator` is defined only the first character is taken into account. Default value is comma (`,`)
-
 - `fullDQuote` directs use of enclosing quotes (`"`): if `true`, it encloses *every* value, otherwise it only encloses values which need enclosing (values with double quote, CR, LF, separators inside). Default is `false`
 
-  *Note*: list of headers has been deemed safer instead of drawing this list from objects properties directly because there is not always a defined and constant order of properties in objects (it is implementation dependent as ECMAScript works in old browsers and a matter of certain controversy)
+------
+
+*Note*: list of headers has been deemed safer instead of drawing this list from objects properties directly because there is not always a defined and constant order of properties in objects (it is implementation dependent as ECMAScript works in old browsers and a matter of certain controversy)
 
 ## Example
 
@@ -52,7 +53,7 @@ Returned `csv` string array will contain this:
 
 # Low Level Functions
 
-Those helper functions can be used for building a slightly different usage
+Those helper functions can be used as primitives for building other CSV builders for different usages
 
 ## `escapeSpecialCharacters(inputString, separator = ",")`
 
@@ -70,4 +71,6 @@ Naturally, `separator` is meant to be the value separator for a CSV record, if `
 Takes an `input` and returns it as a string only if input is already a *string* or a *number*, returns `null` otherwise
 
 If `input` is a number, transforms it to a string with the provided `radix` (a number between 2 and 36, inclusively, representing the base for representing a numeric value)
+
+------
 

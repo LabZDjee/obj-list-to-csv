@@ -1,7 +1,7 @@
 {
   "name": "@labzdjee/obj-list-to-csv",
-  "version": "1.0.0",
-  "description": "put strings and numbers of a list of objects in an RFC-4180 compliant CSV string",
+  "version": "1.0.2",
+  "description": "Put strings and numbers of a list of objects into an RFC-4180 compliant CSV list of strings",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
